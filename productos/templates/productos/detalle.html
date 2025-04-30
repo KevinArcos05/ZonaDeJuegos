@@ -1,0 +1,17 @@
+{% extends 'productos/base.html' %}
+
+{% block content %}
+<h2 style="color: #ff4500; text-shadow: 0 0 10px #ff6347, 0 0 20px #ffa500; font-family: 'Press Start 2P', cursive; text-align: center;">
+    Detalle del Producto
+</h2>
+<div style="text-align: center; font-family: 'Press Start 2P', cursive; color: #dcdcdc;">
+    {% if producto.imagen %}
+        <img src="{{ producto.imagen.url }}" alt="Imagen de {{ producto.nombre }}" style="max-width: 300px; border-radius: 10px; margin-bottom: 20px; border: 2px solid #ff4500;">
+    {% endif %}
+    <h3 style="color: #ffa500; text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347;">{{ producto.nombre }}</h3>
+    <p><strong style="color: #ff6347;">Descripción:</strong> {{ producto.descripcion }}</p>
+    <p><strong style="color: #ff6347;">Precio:</strong> ${{ producto.precio }}</p>
+    <p><strong style="color: #ff6347;">Stock:</strong> {{ producto.stock }}</p>
+    <a href="{% url 'lista_productos' %}" style="text-decoration: none; color: #00ffff; font-size: 0.9rem;">Volver a la lista</a>
+</div>
+{% endblock %}
